@@ -1,0 +1,1121 @@
+{
+    "meta": {
+        "version": "3.5.0",
+        "report_json_url": "https://raw.githubusercontent.com/eosc-synergy/yProv4SQA.assess.sqaaas/main/.report/assessment_output.json",
+        "report_permalink": "https://sqaaas.eosc-synergy.eu/full-assessment/report/https://raw.githubusercontent.com/eosc-synergy/yProv4SQA.assess.sqaaas/main/.report/assessment_output.json",
+        "timestamp": 1764929331.7414193
+    },
+    "repository": [
+        {
+            "url": "https://github.com/HPCI-Lab/yProv4SQA",
+            "name": "HPCI-Lab/yProv4SQA",
+            "tag": "main",
+            "commit_id": "94cc6cc54b9bbb9975c171fb2168752b4e916f9d",
+            "is_main_repo": true,
+            "avatar_url": "https://avatars.githubusercontent.com/u/134686857?v=4",
+            "description": null,
+            "languages": null,
+            "topics": null,
+            "stargazers_count": null,
+            "watchers_count": null,
+            "contributors_count": null,
+            "forks_count": null,
+            "badge_status": "no_badge"
+        }
+    ],
+    "report": {
+        "QC.Acc": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Acc01": {
+                    "description": "Is the source code managed with a Version Control System?",
+                    "requirement_level": "MUST",
+                    "hint": "The source code shall be managed with Git and remain publicly available for this criterion to be successful. Please check <a href=\"https://git-scm.com/book/es/v2\" target=\"_blank\">Pro Git</a> docs about how to get started using Git tool. Guidelines provided by the most popular social coding platforms (<a href=\"https://docs.github.com/get-started\" target=\"_blank\">GitHub</a>, <a href=\"https://about.gitlab.com/get-started/\" target=\"_blank\">GitLab</a>) are also a good starting point",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Source code uses Git for version control",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": "scm",
+                                "version": "2.34.1",
+                                "docker": {
+                                    "image": "bitnami/git:2.34.1",
+                                    "reviewed": "2021-12-30"
+                                },
+                                "ci": {
+                                    "name": "QC.Acc github.com/HPCI-Lab/yProv4SQA git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/34/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Doc": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Doc06.1": {
+                    "description": "Is the software scope outlined in the code repository?",
+                    "requirement_level": "MUST",
+                    "hint": "A README file presents your software to the audience interested in your software project. Several online sites simplify the task of creating the README file, such as <a href=\"https://www.makeareadme.com/\" target=\"_blank\">Make a README</a> or <a href=\"https://readme.so/\" target=\"_blank\">readme.so</a> sites. Be sure to add it to the code repository's root path",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "A README file is present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/HPCI-Lab/yProv4SQA find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 1186}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [
+                                    {
+                                        "file_name": "README.md",
+                                        "size": 1186
+                                    }
+                                ],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": true
+                },
+                "QC.Doc06.3": {
+                    "description": "Does the project establish a code of conduct for its participants?",
+                    "requirement_level": "MUST",
+                    "hint": "A CODE_OF_CONDUCT file sets the path for a constructive, respectful and positive atmosphere among all the contributors in your software project. Of course you can define your own, but in case you want to rely on external and widely-adopted code of conducts check out some of the most popular ones: <a href=\"https://contributor-covenant.org/\" target=\"_blank\">Contributor Covenant</a> or <a href=\"https://web.archive.org/web/20200330154000/http://citizencodeofconduct.org/\" target=\"_blank\">Citizen Code of Conduct</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CODE_OF_CONDUCT file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/HPCI-Lab/yProv4SQA find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 1186}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [
+                                    {
+                                        "file_name": "README.md",
+                                        "size": 1186
+                                    }
+                                ],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc06.2": {
+                    "description": "Is there a clear path or guidelines on how to contribute to the code?",
+                    "requirement_level": "MUST",
+                    "hint": "A CONTRIBUTING file shall be present in the root path of the code repository describing the expected workflow to follow when adding contributions. Please check <a href=\"https://mozillascience.github.io/working-open-workshop/contributing/\" target=\"_blank\">Mozilla's guidelines</a> and <a href=\"https://github.com/github/docs/blob/main/CONTRIBUTING.md\" target=\"_blank\">GitHub's CONTRIBUTING.md example</a> to get inspired on how to write a good CONTRIBUTING file",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CONTRIBUTING file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/HPCI-Lab/yProv4SQA find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 1186}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [
+                                    {
+                                        "file_name": "README.md",
+                                        "size": 1186
+                                    }
+                                ],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc01.1": {
+                    "description": "Are docs managed in the same repository as code?",
+                    "requirement_level": "MAY",
+                    "hint": "This subcriterion will succeed if the documentation files exist on the same repository as the source code, e.g. under a <code>docs/</code> folder",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Documentation resides in the same repository as code",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": null,
+                                "version": null,
+                                "docker": null,
+                                "ci": {
+                                    "name": "QC.Doc github.com/HPCI-Lab/yProv4SQA git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/52/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                },
+                "QC.Doc02.X": {
+                    "description": "Are docs following a style for the Markdown markup language?",
+                    "requirement_level": "MAY",
+                    "hint": "When using a docs-as-code approach, the style of the markup language is being checked. SQAaaS relies on <a href=\"https://github.com/markdownlint/markdownlint/\" target=\"_blank\">markdownlint</a> for Markdown files and <a href=\"https://github.com/twolfson/restructuredtext-lint/\" target=\"_blank\">restructuredtext-lint</a> for reStructuredText",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Docs are not fully compliant with markdownlint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-markdownlint",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "markdownlint",
+                                "lang": "Markdown",
+                                "version": "0.11.0",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/markdownlint/Dockerfile",
+                                    "reviewed": "1970-01-01"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/HPCI-Lab/yProv4SQA markdownlint",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "mdl --json  ."
+                                    ],
+                                    "stdout_text": "[{\"filename\":\"./README.md\",\"line\":3,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":36,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":44,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":52,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":56,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":173,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./artifacts/README.md\",\"line\":1,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":3,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":7,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":8,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":18,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":53,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":62,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":70,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":72,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":80,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":88,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":98,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":104,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":111,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":112,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":116,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":120,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":122,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":130,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":133,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":135,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":137,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":141,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":156,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":184,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":188,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/README.md\",\"line\":17,\"rule\":\"MD032\",\"aliases\":[\"blanks-around-lists\"],\"description\":\"Lists should be surrounded by blank lines\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md032---lists-should-be-surrounded-by-blank-lines\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/SQAaaS/README.md\",\"line\":3,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/SQAaaS/README.md\",\"line\":9,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/SQAaaS/README.md\",\"line\":15,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/SQAaaS/README.md\",\"line\":27,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/SQAaaS/README.md\",\"line\":29,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/SQAaaS/README.md\",\"line\":33,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/SQAaaS/README.md\",\"line\":29,\"rule\":\"MD029\",\"aliases\":[\"ol-prefix\"],\"description\":\"Ordered list item prefix\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md029---ordered-list-item-prefix\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/SQAaaS/README.md\",\"line\":31,\"rule\":\"MD029\",\"aliases\":[\"ol-prefix\"],\"description\":\"Ordered list item prefix\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md029---ordered-list-item-prefix\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":3,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":24,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":78,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":80,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":85,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":91,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":97,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":100,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":104,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":107,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./artifacts/yProv_and_SQAaaS/yProv/README.md\",\"line\":112,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"}]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/61/log?consoleFull"
+                                },
+                                "level": "RECOMMENDED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "./README.md": {
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            3,
+                                            36,
+                                            44,
+                                            52,
+                                            56
+                                        ]
+                                    }
+                                },
+                                "./artifacts/README.md": {
+                                    "MD009": {
+                                        "description": "Trailing spaces",
+                                        "line": [
+                                            173
+                                        ]
+                                    },
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            1,
+                                            3,
+                                            7,
+                                            8,
+                                            18,
+                                            53,
+                                            62,
+                                            70,
+                                            72,
+                                            80,
+                                            88,
+                                            98,
+                                            104,
+                                            111,
+                                            112,
+                                            116,
+                                            120,
+                                            122,
+                                            130,
+                                            133,
+                                            135,
+                                            137,
+                                            141,
+                                            156,
+                                            184,
+                                            188
+                                        ]
+                                    },
+                                    "MD032": {
+                                        "description": "Lists should be surrounded by blank lines",
+                                        "line": [
+                                            17
+                                        ]
+                                    }
+                                },
+                                "./artifacts/yProv_and_SQAaaS/SQAaaS/README.md": {
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            3,
+                                            9,
+                                            15,
+                                            27,
+                                            29,
+                                            33
+                                        ]
+                                    },
+                                    "MD029": {
+                                        "description": "Ordered list item prefix",
+                                        "line": [
+                                            29,
+                                            31
+                                        ]
+                                    }
+                                },
+                                "./artifacts/yProv_and_SQAaaS/yProv/README.md": {
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            3,
+                                            24,
+                                            78,
+                                            80,
+                                            85,
+                                            91,
+                                            97,
+                                            100,
+                                            104,
+                                            107,
+                                            112
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 40,
+                "total_subcriteria": 5,
+                "success_subcriteria": 2
+            }
+        },
+        "QC.Lic": {
+            "valid": false,
+            "subcriteria": {},
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 0,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Sec": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Sec02": {
+                    "description": "Is the source code passing Static Analysis Security Testing (SAST)?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the SAST tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Found security weaknesses when performing SAST checks with bandit tool",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-bandit",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "bandit",
+                                "lang": "Python",
+                                "version": "1.7.4",
+                                "docker": {
+                                    "dockerfile": "QC.Sec/bandit/Dockerfile",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sec github.com/HPCI-Lab/yProv4SQA bandit",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "bandit -f json --quiet  --confidence-level high --severity-level high --recursive  ."
+                                    ],
+                                    "stdout_text": "{\n  \"errors\": [],\n  \"generated_at\": \"2025-12-05T10:06:26Z\",\n  \"metrics\": {\n    \"./setup.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 25,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 13,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/_compare.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 218,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/_fetcher.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 131,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/_graph.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 16,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/_provenance.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 162,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/cli/compare.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 11,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/cli/fetch_sqa_reports.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 8,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/cli/json2graph.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 8,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/cli/process_provenance.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 8,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/models/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 6,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/models/agent.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 13,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/models/assessment.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 19,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/models/output.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 30,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/models/provenance_model.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 45,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/models/provenance_relationship.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 51,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/models/quality_check.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 19,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./src/yprov4sqa/models/repository.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 19,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 802,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"18     dot_path.write_text(dot.prov_to_dot(doc).to_string())\\n19     os.system(f\\\"dot -Tsvg {dot_path} > {svg_path}\\\")\\n20 \\n\",\n      \"col_offset\": 4,\n      \"filename\": \"./src/yprov4sqa/_graph.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"HIGH\",\n      \"issue_text\": \"Starting a process with a shell, possible injection detected, security issue.\",\n      \"line_number\": 19,\n      \"line_range\": [\n        19\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.7.4/plugins/b605_start_process_with_a_shell.html\",\n      \"test_id\": \"B605\",\n      \"test_name\": \"start_process_with_a_shell\"\n    }\n  ]\n}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/79/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "errors": [],
+                                "generated_at": "2025-12-05T10:06:26Z",
+                                "metrics": {
+                                    "./setup.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 25,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 13,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/_compare.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 218,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/_fetcher.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 131,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/_graph.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 1,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 16,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/_provenance.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 162,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/cli/compare.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 11,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/cli/fetch_sqa_reports.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 8,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/cli/json2graph.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 8,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/cli/process_provenance.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 8,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/models/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 6,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/models/agent.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 13,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/models/assessment.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 19,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/models/output.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 30,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/models/provenance_model.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 45,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/models/provenance_relationship.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 51,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/models/quality_check.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 19,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./src/yprov4sqa/models/repository.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 19,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "_totals": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 1,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 802,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    }
+                                },
+                                "results": [
+                                    {
+                                        "code": "18     dot_path.write_text(dot.prov_to_dot(doc).to_string())\n19     os.system(f\"dot -Tsvg {dot_path} > {svg_path}\")\n20 \n",
+                                        "col_offset": 4,
+                                        "filename": "./src/yprov4sqa/_graph.py",
+                                        "issue_confidence": "HIGH",
+                                        "issue_cwe": {
+                                            "id": 78,
+                                            "link": "https://cwe.mitre.org/data/definitions/78.html"
+                                        },
+                                        "issue_severity": "HIGH",
+                                        "issue_text": "Starting a process with a shell, possible injection detected, security issue.",
+                                        "line_number": 19,
+                                        "line_range": [
+                                            19
+                                        ],
+                                        "more_info": "https://bandit.readthedocs.io/en/1.7.4/plugins/b605_start_process_with_a_shell.html",
+                                        "test_id": "B605",
+                                        "test_name": "start_process_with_a_shell"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Sty": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Sty01": {
+                    "description": "Is the software product following a style standard for Python files?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the linter tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Python files are not fully compliant with flake8 (pycodestyle, pyflakes, mccabe) standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-flake8",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "flake8",
+                                "lang": "Python",
+                                "version": "4.0.1 (mccabe: 0.6.1, pycodestyle: 2.8.0, pyflakes: 2.4.0)",
+                                "docker": {
+                                    "image": "pipelinecomponents/flake8:0.9.0",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sty github.com/HPCI-Lab/yProv4SQA flake8",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "flake8 ."
+                                    ],
+                                    "stdout_text": "./setup.py:7:29: W291 trailing whitespace\n./setup.py:8:41: W291 trailing whitespace\n./setup.py:24:80: E501 line too long (94 > 79 characters)\n./setup.py:27:2: W292 no newline at end of file\n./src/yprov4sqa/_compare.py:6:1: F401 'datetime.datetime' imported but unused\n./src/yprov4sqa/_compare.py:7:12: E401 multiple imports on one line\n./src/yprov4sqa/_compare.py:11:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_compare.py:21:19: E221 multiple spaces before operator\n./src/yprov4sqa/_compare.py:26:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_compare.py:29:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_compare.py:60:80: E501 line too long (107 > 79 characters)\n./src/yprov4sqa/_compare.py:65:80: E501 line too long (111 > 79 characters)\n./src/yprov4sqa/_compare.py:66:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:70:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:72:29: E222 multiple spaces after operator\n./src/yprov4sqa/_compare.py:73:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:76:80: E501 line too long (90 > 79 characters)\n./src/yprov4sqa/_compare.py:79:80: E501 line too long (88 > 79 characters)\n./src/yprov4sqa/_compare.py:82:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:92:24: E225 missing whitespace around operator\n./src/yprov4sqa/_compare.py:93:24: E225 missing whitespace around operator\n./src/yprov4sqa/_compare.py:98:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_compare.py:99:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_compare.py:107:23: F541 f-string is missing placeholders\n./src/yprov4sqa/_compare.py:107:80: E501 line too long (94 > 79 characters)\n./src/yprov4sqa/_compare.py:109:80: E501 line too long (86 > 79 characters)\n./src/yprov4sqa/_compare.py:111:80: E501 line too long (138 > 79 characters)\n./src/yprov4sqa/_compare.py:113:80: E501 line too long (138 > 79 characters)\n./src/yprov4sqa/_compare.py:115:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_compare.py:148:80: E501 line too long (90 > 79 characters)\n./src/yprov4sqa/_compare.py:149:80: E501 line too long (90 > 79 characters)\n./src/yprov4sqa/_compare.py:152:80: E501 line too long (99 > 79 characters)\n./src/yprov4sqa/_compare.py:159:80: E501 line too long (99 > 79 characters)\n./src/yprov4sqa/_compare.py:167:80: E501 line too long (143 > 79 characters)\n./src/yprov4sqa/_compare.py:175:80: E501 line too long (130 > 79 characters)\n./src/yprov4sqa/_compare.py:191:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_compare.py:197:80: E501 line too long (85 > 79 characters)\n./src/yprov4sqa/_compare.py:208:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_compare.py:209:80: E501 line too long (108 > 79 characters)\n./src/yprov4sqa/_compare.py:210:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_compare.py:216:80: E501 line too long (107 > 79 characters)\n./src/yprov4sqa/_compare.py:219:80: E501 line too long (157 > 79 characters)\n./src/yprov4sqa/_compare.py:228:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_compare.py:241:1: E303 too many blank lines (3)\n./src/yprov4sqa/_compare.py:243:80: E501 line too long (101 > 79 characters)\n./src/yprov4sqa/_compare.py:245:80: E501 line too long (91 > 79 characters)\n./src/yprov4sqa/_compare.py:246:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_compare.py:256:9: E303 too many blank lines (2)\n./src/yprov4sqa/_compare.py:258:80: E501 line too long (128 > 79 characters)\n./src/yprov4sqa/_compare.py:260:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:264:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:266:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:268:80: E501 line too long (108 > 79 characters)\n./src/yprov4sqa/_compare.py:272:80: E501 line too long (108 > 79 characters)\n./src/yprov4sqa/_compare.py:275:18: E222 multiple spaces after operator\n./src/yprov4sqa/_compare.py:275:80: E501 line too long (96 > 79 characters)\n./src/yprov4sqa/_compare.py:276:16: E225 missing whitespace around operator\n./src/yprov4sqa/_compare.py:276:38: W291 trailing whitespace\n./src/yprov4sqa/_compare.py:277:18: E222 multiple spaces after operator\n./src/yprov4sqa/_compare.py:277:80: E501 line too long (96 > 79 characters)\n./src/yprov4sqa/_compare.py:278:16: E225 missing whitespace around operator\n./src/yprov4sqa/_compare.py:278:38: W291 trailing whitespace\n./src/yprov4sqa/_compare.py:279:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:280:80: E501 line too long (112 > 79 characters)\n./src/yprov4sqa/_compare.py:281:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:282:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_graph.py:1:15: E401 multiple imports on one line\n./src/yprov4sqa/_graph.py:2:12: E401 multiple imports on one line\n./src/yprov4sqa/_graph.py:4:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_graph.py:21:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/_graph.py:22:11: W292 no newline at end of file\n./src/yprov4sqa/_fetcher.py:1:12: E401 multiple imports on one line\n./src/yprov4sqa/_fetcher.py:7:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_fetcher.py:17:19: E221 multiple spaces before operator\n./src/yprov4sqa/_fetcher.py:22:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_fetcher.py:25:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_fetcher.py:36:80: E501 line too long (98 > 79 characters)\n./src/yprov4sqa/_fetcher.py:45:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_fetcher.py:58:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_fetcher.py:60:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_fetcher.py:67:80: E501 line too long (94 > 79 characters)\n./src/yprov4sqa/_fetcher.py:74:80: E501 line too long (95 > 79 characters)\n./src/yprov4sqa/_fetcher.py:84:80: E501 line too long (112 > 79 characters)\n./src/yprov4sqa/_fetcher.py:85:80: E501 line too long (81 > 79 characters)\n./src/yprov4sqa/_fetcher.py:88:5: E303 too many blank lines (2)\n./src/yprov4sqa/_fetcher.py:94:80: E501 line too long (90 > 79 characters)\n./src/yprov4sqa/_fetcher.py:95:80: E501 line too long (120 > 79 characters)\n./src/yprov4sqa/_fetcher.py:106:13: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:109:17: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:109:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_fetcher.py:113:17: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:113:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_fetcher.py:118:17: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:118:80: E501 line too long (95 > 79 characters)\n./src/yprov4sqa/_fetcher.py:130:17: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:134:80: E501 line too long (85 > 79 characters)\n./src/yprov4sqa/_fetcher.py:136:1: W293 blank line contains whitespace\n./src/yprov4sqa/_fetcher.py:149:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_fetcher.py:151:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_fetcher.py:160:80: E501 line too long (85 > 79 characters)\n./src/yprov4sqa/_fetcher.py:167:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_fetcher.py:168:80: E501 line too long (99 > 79 characters)\n./src/yprov4sqa/_fetcher.py:169:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_fetcher.py:175:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/_provenance.py:13:12: E401 multiple imports on one line\n./src/yprov4sqa/_provenance.py:16:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_provenance.py:22:19: E221 multiple spaces before operator\n./src/yprov4sqa/_provenance.py:27:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_provenance.py:30:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_provenance.py:41:31: W291 trailing whitespace\n./src/yprov4sqa/_provenance.py:46:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_provenance.py:47:9: E117 over-indented\n./src/yprov4sqa/_provenance.py:56:1: W293 blank line contains whitespace\n./src/yprov4sqa/_provenance.py:57:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_provenance.py:63:5: E265 block comment should start with '# '\n./src/yprov4sqa/_provenance.py:65:80: E501 line too long (82 > 79 characters)\n./src/yprov4sqa/_provenance.py:79:9: E265 block comment should start with '# '\n./src/yprov4sqa/_provenance.py:79:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_provenance.py:85:80: E501 line too long (88 > 79 characters)\n./src/yprov4sqa/_provenance.py:97:14: E225 missing whitespace around operator\n./src/yprov4sqa/_provenance.py:98:15: E225 missing whitespace around operator\n./src/yprov4sqa/_provenance.py:101:15: E251 unexpected spaces around keyword / parameter equals\n./src/yprov4sqa/_provenance.py:101:17: E251 unexpected spaces around keyword / parameter equals\n./src/yprov4sqa/_provenance.py:102:22: E251 unexpected spaces around keyword / parameter equals\n./src/yprov4sqa/_provenance.py:102:24: E251 unexpected spaces around keyword / parameter equals\n./src/yprov4sqa/_provenance.py:107:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_provenance.py:116:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_provenance.py:119:63: E231 missing whitespace after ','\n./src/yprov4sqa/_provenance.py:119:80: E501 line too long (96 > 79 characters)\n./src/yprov4sqa/_provenance.py:129:80: E501 line too long (93 > 79 characters)\n./src/yprov4sqa/_provenance.py:131:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_provenance.py:132:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_provenance.py:133:80: E501 line too long (95 > 79 characters)\n./src/yprov4sqa/_provenance.py:176:1: W293 blank line contains whitespace\n./src/yprov4sqa/_provenance.py:178:23: E128 continuation line under-indented for visual indent\n./src/yprov4sqa/_provenance.py:178:80: E501 line too long (107 > 79 characters)\n./src/yprov4sqa/_provenance.py:180:35: W291 trailing whitespace\n./src/yprov4sqa/_provenance.py:187:53: W291 trailing whitespace\n./src/yprov4sqa/_provenance.py:188:80: E501 line too long (82 > 79 characters)\n./src/yprov4sqa/_provenance.py:190:12: W291 trailing whitespace\n./src/yprov4sqa/_provenance.py:197:80: E501 line too long (86 > 79 characters)\n./src/yprov4sqa/_provenance.py:206:80: E501 line too long (114 > 79 characters)\n./src/yprov4sqa/_provenance.py:207:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_provenance.py:215:11: W292 no newline at end of file\n./src/yprov4sqa/__init__.py:6:15: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:7:43: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:8:15: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:8:30: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:9:13: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:9:30: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:14:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/__init__.py:17:40: W292 no newline at end of file\n./src/yprov4sqa/models/assessment.py:4:45: E231 missing whitespace after ','\n./src/yprov4sqa/models/assessment.py:4:80: E501 line too long (118 > 79 characters)\n./src/yprov4sqa/models/assessment.py:4:91: E231 missing whitespace after ':'\n./src/yprov4sqa/models/assessment.py:7:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/assessment.py:8:25: E225 missing whitespace around operator\n./src/yprov4sqa/models/assessment.py:9:25: E225 missing whitespace around operator\n./src/yprov4sqa/models/assessment.py:14:31: W291 trailing whitespace\n./src/yprov4sqa/models/provenance_model.py:3:1: F401 '.repository.Repository' imported but unused\n./src/yprov4sqa/models/provenance_model.py:4:1: F401 '.assessment.Assessment' imported but unused\n./src/yprov4sqa/models/provenance_model.py:6:1: F401 '.output.Output' imported but unused\n./src/yprov4sqa/models/provenance_model.py:22:13: F601 dictionary key 'wasAssociatedWith' repeated with different values\n./src/yprov4sqa/models/provenance_model.py:25:13: F601 dictionary key 'wasAssociatedWith' repeated with different values\n./src/yprov4sqa/models/provenance_model.py:38:80: E501 line too long (93 > 79 characters)\n./src/yprov4sqa/models/provenance_model.py:40:80: E501 line too long (80 > 79 characters)\n./src/yprov4sqa/models/repository.py:4:65: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:4:69: E203 whitespace before ','\n./src/yprov4sqa/models/repository.py:4:80: E501 line too long (103 > 79 characters)\n./src/yprov4sqa/models/repository.py:4:83: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:4:98: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:8:24: E225 missing whitespace around operator\n./src/yprov4sqa/models/repository.py:9:25: E225 missing whitespace around operator\n./src/yprov4sqa/models/repository.py:10:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/repository.py:14:31: W291 trailing whitespace\n./src/yprov4sqa/models/repository.py:18:32: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:19:33: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:20:31: E231 missing whitespace after ':'\n./src/yprov4sqa/models/agent.py:4:80: E501 line too long (112 > 79 characters)\n./src/yprov4sqa/models/agent.py:12:31: W291 trailing whitespace\n./src/yprov4sqa/models/output.py:5:27: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:6:28: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:7:29: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:8:27: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:9:39: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:10:27: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:12:1: W293 blank line contains whitespace\n./src/yprov4sqa/models/output.py:15:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:16:24: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:17:25: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:18:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:19:35: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:20:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:24:5: E303 too many blank lines (3)\n./src/yprov4sqa/models/output.py:26:31: W291 trailing whitespace\n./src/yprov4sqa/models/output.py:29:35: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:30:36: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:31:37: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:32:35: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:33:47: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:34:31: E231 missing whitespace after ':'\n./src/yprov4sqa/models/quality_check.py:4:80: E501 line too long (133 > 79 characters)\n./src/yprov4sqa/models/__init__.py:2:1: F401 '.agent.Agent' imported but unused\n./src/yprov4sqa/models/__init__.py:3:1: F401 '.assessment.Assessment' imported but unused\n./src/yprov4sqa/models/__init__.py:4:1: F401 '.repository.Repository' imported but unused\n./src/yprov4sqa/models/__init__.py:5:1: F401 '.quality_check.QualityCheck' imported but unused\n./src/yprov4sqa/models/__init__.py:6:1: F401 '.output.Output' imported but unused\n./src/yprov4sqa/models/__init__.py:7:1: F401 '.provenance_relationship.ProvenanceRelationship' imported but unused\n./src/yprov4sqa/models/provenance_relationship.py:5:31: W291 trailing whitespace\n./src/yprov4sqa/models/provenance_relationship.py:6:27: W291 trailing whitespace\n./src/yprov4sqa/models/provenance_relationship.py:7:51: W291 trailing whitespace\n./src/yprov4sqa/models/provenance_relationship.py:30:1: W293 blank line contains whitespace\n./src/yprov4sqa/models/provenance_relationship.py:46:5: E301 expected 1 blank line, found 0\n./src/yprov4sqa/cli/compare.py:1:11: E401 multiple imports on one line\n./src/yprov4sqa/cli/compare.py:4:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/cli/compare.py:13:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/cli/compare.py:14:11: W292 no newline at end of file\n./src/yprov4sqa/cli/process_provenance.py:5:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/cli/process_provenance.py:10:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/cli/process_provenance.py:11:11: W292 no newline at end of file\n./src/yprov4sqa/cli/json2graph.py:4:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/cli/json2graph.py:9:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/cli/json2graph.py:10:11: W292 no newline at end of file\n./src/yprov4sqa/cli/fetch_sqa_reports.py:4:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/cli/fetch_sqa_reports.py:9:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/cli/fetch_sqa_reports.py:10:11: W292 no newline at end of file",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/88/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": "./setup.py:7:29: W291 trailing whitespace\n./setup.py:8:41: W291 trailing whitespace\n./setup.py:24:80: E501 line too long (94 > 79 characters)\n./setup.py:27:2: W292 no newline at end of file\n./src/yprov4sqa/_compare.py:6:1: F401 'datetime.datetime' imported but unused\n./src/yprov4sqa/_compare.py:7:12: E401 multiple imports on one line\n./src/yprov4sqa/_compare.py:11:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_compare.py:21:19: E221 multiple spaces before operator\n./src/yprov4sqa/_compare.py:26:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_compare.py:29:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_compare.py:60:80: E501 line too long (107 > 79 characters)\n./src/yprov4sqa/_compare.py:65:80: E501 line too long (111 > 79 characters)\n./src/yprov4sqa/_compare.py:66:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:70:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:72:29: E222 multiple spaces after operator\n./src/yprov4sqa/_compare.py:73:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:76:80: E501 line too long (90 > 79 characters)\n./src/yprov4sqa/_compare.py:79:80: E501 line too long (88 > 79 characters)\n./src/yprov4sqa/_compare.py:82:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:92:24: E225 missing whitespace around operator\n./src/yprov4sqa/_compare.py:93:24: E225 missing whitespace around operator\n./src/yprov4sqa/_compare.py:98:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_compare.py:99:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_compare.py:107:23: F541 f-string is missing placeholders\n./src/yprov4sqa/_compare.py:107:80: E501 line too long (94 > 79 characters)\n./src/yprov4sqa/_compare.py:109:80: E501 line too long (86 > 79 characters)\n./src/yprov4sqa/_compare.py:111:80: E501 line too long (138 > 79 characters)\n./src/yprov4sqa/_compare.py:113:80: E501 line too long (138 > 79 characters)\n./src/yprov4sqa/_compare.py:115:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_compare.py:148:80: E501 line too long (90 > 79 characters)\n./src/yprov4sqa/_compare.py:149:80: E501 line too long (90 > 79 characters)\n./src/yprov4sqa/_compare.py:152:80: E501 line too long (99 > 79 characters)\n./src/yprov4sqa/_compare.py:159:80: E501 line too long (99 > 79 characters)\n./src/yprov4sqa/_compare.py:167:80: E501 line too long (143 > 79 characters)\n./src/yprov4sqa/_compare.py:175:80: E501 line too long (130 > 79 characters)\n./src/yprov4sqa/_compare.py:191:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_compare.py:197:80: E501 line too long (85 > 79 characters)\n./src/yprov4sqa/_compare.py:208:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_compare.py:209:80: E501 line too long (108 > 79 characters)\n./src/yprov4sqa/_compare.py:210:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_compare.py:216:80: E501 line too long (107 > 79 characters)\n./src/yprov4sqa/_compare.py:219:80: E501 line too long (157 > 79 characters)\n./src/yprov4sqa/_compare.py:228:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_compare.py:241:1: E303 too many blank lines (3)\n./src/yprov4sqa/_compare.py:243:80: E501 line too long (101 > 79 characters)\n./src/yprov4sqa/_compare.py:245:80: E501 line too long (91 > 79 characters)\n./src/yprov4sqa/_compare.py:246:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_compare.py:256:9: E303 too many blank lines (2)\n./src/yprov4sqa/_compare.py:258:80: E501 line too long (128 > 79 characters)\n./src/yprov4sqa/_compare.py:260:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:264:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:266:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:268:80: E501 line too long (108 > 79 characters)\n./src/yprov4sqa/_compare.py:272:80: E501 line too long (108 > 79 characters)\n./src/yprov4sqa/_compare.py:275:18: E222 multiple spaces after operator\n./src/yprov4sqa/_compare.py:275:80: E501 line too long (96 > 79 characters)\n./src/yprov4sqa/_compare.py:276:16: E225 missing whitespace around operator\n./src/yprov4sqa/_compare.py:276:38: W291 trailing whitespace\n./src/yprov4sqa/_compare.py:277:18: E222 multiple spaces after operator\n./src/yprov4sqa/_compare.py:277:80: E501 line too long (96 > 79 characters)\n./src/yprov4sqa/_compare.py:278:16: E225 missing whitespace around operator\n./src/yprov4sqa/_compare.py:278:38: W291 trailing whitespace\n./src/yprov4sqa/_compare.py:279:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:280:80: E501 line too long (112 > 79 characters)\n./src/yprov4sqa/_compare.py:281:1: W293 blank line contains whitespace\n./src/yprov4sqa/_compare.py:282:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_graph.py:1:15: E401 multiple imports on one line\n./src/yprov4sqa/_graph.py:2:12: E401 multiple imports on one line\n./src/yprov4sqa/_graph.py:4:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_graph.py:21:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/_graph.py:22:11: W292 no newline at end of file\n./src/yprov4sqa/_fetcher.py:1:12: E401 multiple imports on one line\n./src/yprov4sqa/_fetcher.py:7:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_fetcher.py:17:19: E221 multiple spaces before operator\n./src/yprov4sqa/_fetcher.py:22:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_fetcher.py:25:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_fetcher.py:36:80: E501 line too long (98 > 79 characters)\n./src/yprov4sqa/_fetcher.py:45:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_fetcher.py:58:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_fetcher.py:60:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_fetcher.py:67:80: E501 line too long (94 > 79 characters)\n./src/yprov4sqa/_fetcher.py:74:80: E501 line too long (95 > 79 characters)\n./src/yprov4sqa/_fetcher.py:84:80: E501 line too long (112 > 79 characters)\n./src/yprov4sqa/_fetcher.py:85:80: E501 line too long (81 > 79 characters)\n./src/yprov4sqa/_fetcher.py:88:5: E303 too many blank lines (2)\n./src/yprov4sqa/_fetcher.py:94:80: E501 line too long (90 > 79 characters)\n./src/yprov4sqa/_fetcher.py:95:80: E501 line too long (120 > 79 characters)\n./src/yprov4sqa/_fetcher.py:106:13: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:109:17: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:109:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_fetcher.py:113:17: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:113:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_fetcher.py:118:17: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:118:80: E501 line too long (95 > 79 characters)\n./src/yprov4sqa/_fetcher.py:130:17: E265 block comment should start with '# '\n./src/yprov4sqa/_fetcher.py:134:80: E501 line too long (85 > 79 characters)\n./src/yprov4sqa/_fetcher.py:136:1: W293 blank line contains whitespace\n./src/yprov4sqa/_fetcher.py:149:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_fetcher.py:151:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_fetcher.py:160:80: E501 line too long (85 > 79 characters)\n./src/yprov4sqa/_fetcher.py:167:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_fetcher.py:168:80: E501 line too long (99 > 79 characters)\n./src/yprov4sqa/_fetcher.py:169:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_fetcher.py:175:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/_provenance.py:13:12: E401 multiple imports on one line\n./src/yprov4sqa/_provenance.py:16:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_provenance.py:22:19: E221 multiple spaces before operator\n./src/yprov4sqa/_provenance.py:27:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_provenance.py:30:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_provenance.py:41:31: W291 trailing whitespace\n./src/yprov4sqa/_provenance.py:46:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_provenance.py:47:9: E117 over-indented\n./src/yprov4sqa/_provenance.py:56:1: W293 blank line contains whitespace\n./src/yprov4sqa/_provenance.py:57:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/_provenance.py:63:5: E265 block comment should start with '# '\n./src/yprov4sqa/_provenance.py:65:80: E501 line too long (82 > 79 characters)\n./src/yprov4sqa/_provenance.py:79:9: E265 block comment should start with '# '\n./src/yprov4sqa/_provenance.py:79:80: E501 line too long (83 > 79 characters)\n./src/yprov4sqa/_provenance.py:85:80: E501 line too long (88 > 79 characters)\n./src/yprov4sqa/_provenance.py:97:14: E225 missing whitespace around operator\n./src/yprov4sqa/_provenance.py:98:15: E225 missing whitespace around operator\n./src/yprov4sqa/_provenance.py:101:15: E251 unexpected spaces around keyword / parameter equals\n./src/yprov4sqa/_provenance.py:101:17: E251 unexpected spaces around keyword / parameter equals\n./src/yprov4sqa/_provenance.py:102:22: E251 unexpected spaces around keyword / parameter equals\n./src/yprov4sqa/_provenance.py:102:24: E251 unexpected spaces around keyword / parameter equals\n./src/yprov4sqa/_provenance.py:107:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_provenance.py:116:80: E501 line too long (89 > 79 characters)\n./src/yprov4sqa/_provenance.py:119:63: E231 missing whitespace after ','\n./src/yprov4sqa/_provenance.py:119:80: E501 line too long (96 > 79 characters)\n./src/yprov4sqa/_provenance.py:129:80: E501 line too long (93 > 79 characters)\n./src/yprov4sqa/_provenance.py:131:80: E501 line too long (84 > 79 characters)\n./src/yprov4sqa/_provenance.py:132:80: E501 line too long (92 > 79 characters)\n./src/yprov4sqa/_provenance.py:133:80: E501 line too long (95 > 79 characters)\n./src/yprov4sqa/_provenance.py:176:1: W293 blank line contains whitespace\n./src/yprov4sqa/_provenance.py:178:23: E128 continuation line under-indented for visual indent\n./src/yprov4sqa/_provenance.py:178:80: E501 line too long (107 > 79 characters)\n./src/yprov4sqa/_provenance.py:180:35: W291 trailing whitespace\n./src/yprov4sqa/_provenance.py:187:53: W291 trailing whitespace\n./src/yprov4sqa/_provenance.py:188:80: E501 line too long (82 > 79 characters)\n./src/yprov4sqa/_provenance.py:190:12: W291 trailing whitespace\n./src/yprov4sqa/_provenance.py:197:80: E501 line too long (86 > 79 characters)\n./src/yprov4sqa/_provenance.py:206:80: E501 line too long (114 > 79 characters)\n./src/yprov4sqa/_provenance.py:207:80: E501 line too long (109 > 79 characters)\n./src/yprov4sqa/_provenance.py:215:11: W292 no newline at end of file\n./src/yprov4sqa/__init__.py:6:15: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:7:43: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:8:15: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:8:30: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:9:13: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:9:30: E272 multiple spaces before keyword\n./src/yprov4sqa/__init__.py:14:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/__init__.py:17:40: W292 no newline at end of file\n./src/yprov4sqa/models/assessment.py:4:45: E231 missing whitespace after ','\n./src/yprov4sqa/models/assessment.py:4:80: E501 line too long (118 > 79 characters)\n./src/yprov4sqa/models/assessment.py:4:91: E231 missing whitespace after ':'\n./src/yprov4sqa/models/assessment.py:7:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/assessment.py:8:25: E225 missing whitespace around operator\n./src/yprov4sqa/models/assessment.py:9:25: E225 missing whitespace around operator\n./src/yprov4sqa/models/assessment.py:14:31: W291 trailing whitespace\n./src/yprov4sqa/models/provenance_model.py:3:1: F401 '.repository.Repository' imported but unused\n./src/yprov4sqa/models/provenance_model.py:4:1: F401 '.assessment.Assessment' imported but unused\n./src/yprov4sqa/models/provenance_model.py:6:1: F401 '.output.Output' imported but unused\n./src/yprov4sqa/models/provenance_model.py:22:13: F601 dictionary key 'wasAssociatedWith' repeated with different values\n./src/yprov4sqa/models/provenance_model.py:25:13: F601 dictionary key 'wasAssociatedWith' repeated with different values\n./src/yprov4sqa/models/provenance_model.py:38:80: E501 line too long (93 > 79 characters)\n./src/yprov4sqa/models/provenance_model.py:40:80: E501 line too long (80 > 79 characters)\n./src/yprov4sqa/models/repository.py:4:65: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:4:69: E203 whitespace before ','\n./src/yprov4sqa/models/repository.py:4:80: E501 line too long (103 > 79 characters)\n./src/yprov4sqa/models/repository.py:4:83: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:4:98: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:8:24: E225 missing whitespace around operator\n./src/yprov4sqa/models/repository.py:9:25: E225 missing whitespace around operator\n./src/yprov4sqa/models/repository.py:10:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/repository.py:14:31: W291 trailing whitespace\n./src/yprov4sqa/models/repository.py:18:32: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:19:33: E231 missing whitespace after ':'\n./src/yprov4sqa/models/repository.py:20:31: E231 missing whitespace after ':'\n./src/yprov4sqa/models/agent.py:4:80: E501 line too long (112 > 79 characters)\n./src/yprov4sqa/models/agent.py:12:31: W291 trailing whitespace\n./src/yprov4sqa/models/output.py:5:27: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:6:28: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:7:29: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:8:27: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:9:39: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:10:27: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:12:1: W293 blank line contains whitespace\n./src/yprov4sqa/models/output.py:15:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:16:24: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:17:25: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:18:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:19:35: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:20:23: E225 missing whitespace around operator\n./src/yprov4sqa/models/output.py:24:5: E303 too many blank lines (3)\n./src/yprov4sqa/models/output.py:26:31: W291 trailing whitespace\n./src/yprov4sqa/models/output.py:29:35: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:30:36: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:31:37: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:32:35: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:33:47: E231 missing whitespace after ':'\n./src/yprov4sqa/models/output.py:34:31: E231 missing whitespace after ':'\n./src/yprov4sqa/models/quality_check.py:4:80: E501 line too long (133 > 79 characters)\n./src/yprov4sqa/models/__init__.py:2:1: F401 '.agent.Agent' imported but unused\n./src/yprov4sqa/models/__init__.py:3:1: F401 '.assessment.Assessment' imported but unused\n./src/yprov4sqa/models/__init__.py:4:1: F401 '.repository.Repository' imported but unused\n./src/yprov4sqa/models/__init__.py:5:1: F401 '.quality_check.QualityCheck' imported but unused\n./src/yprov4sqa/models/__init__.py:6:1: F401 '.output.Output' imported but unused\n./src/yprov4sqa/models/__init__.py:7:1: F401 '.provenance_relationship.ProvenanceRelationship' imported but unused\n./src/yprov4sqa/models/provenance_relationship.py:5:31: W291 trailing whitespace\n./src/yprov4sqa/models/provenance_relationship.py:6:27: W291 trailing whitespace\n./src/yprov4sqa/models/provenance_relationship.py:7:51: W291 trailing whitespace\n./src/yprov4sqa/models/provenance_relationship.py:30:1: W293 blank line contains whitespace\n./src/yprov4sqa/models/provenance_relationship.py:46:5: E301 expected 1 blank line, found 0\n./src/yprov4sqa/cli/compare.py:1:11: E401 multiple imports on one line\n./src/yprov4sqa/cli/compare.py:4:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/cli/compare.py:13:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/cli/compare.py:14:11: W292 no newline at end of file\n./src/yprov4sqa/cli/process_provenance.py:5:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/cli/process_provenance.py:10:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/cli/process_provenance.py:11:11: W292 no newline at end of file\n./src/yprov4sqa/cli/json2graph.py:4:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/cli/json2graph.py:9:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/cli/json2graph.py:10:11: W292 no newline at end of file\n./src/yprov4sqa/cli/fetch_sqa_reports.py:4:1: E302 expected 2 blank lines, found 1\n./src/yprov4sqa/cli/fetch_sqa_reports.py:9:1: E305 expected 2 blank lines after class or function definition, found 1\n./src/yprov4sqa/cli/fetch_sqa_reports.py:10:11: W292 no newline at end of file"
+                        },
+                        {
+                            "valid": false,
+                            "message": "JSON files are not fully compliant with jsonlint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-jenkins_exit_status",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "jsonlint",
+                                "lang": "JSON",
+                                "version": "1.6.3",
+                                "docker": {
+                                    "dockerfile": "QC.Sty/jsonlint/Dockerfile",
+                                    "reviewed": "2021-11-23"
+                                },
+                                "ci": {
+                                    "name": "QC.Sty github.com/HPCI-Lab/yProv4SQA jsonlint",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "jsonlint-cli \"**/*.json\""
+                                    ],
+                                    "stdout_text": "\n<--- Last few GCs --->\n\n[14:0x6ed7490]    34750 ms: Mark-Compact (reduce) 1971.7 (2006.1) -> 1970.5 (2006.3) MB, 1927.97 / 0.00 ms  (+ 52.0 ms in 30 steps since start of marking, biggest step 3.9 ms, walltime since start of marking 2003 ms) (average mu = 0.259, current mu = 0.01[14:0x6ed7490]    37254 ms: Mark-Compact (reduce) 1971.5 (2006.3) -> 1971.5 (2007.1) MB, 2503.14 / 0.00 ms  (average mu = 0.137, current mu = 0.000) allocation failure; scavenge might not succeed\n\n\n<--- JS stacktrace --->\n\nFATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory\n 1: 0xc8d700 node::Abort() [jsonlint-cli]\n 2: 0xb6b8f3  [jsonlint-cli]\n 3: 0xeac370 v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, v8::OOMDetails const&) [jsonlint-cli]\n 4: 0xeac657 v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, v8::OOMDetails const&) [jsonlint-cli]\n 5: 0x10bdcc5  [jsonlint-cli]\n 6: 0x10d5b48 v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [jsonlint-cli]\n 7: 0x10abc61 v8::internal::HeapAllocator::AllocateRawWithLightRetrySlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [jsonlint-cli]\n 8: 0x10acdf5 v8::internal::HeapAllocator::AllocateRawWithRetryOrFailSlowPath(int, v8::internal::AllocationType, v8::internal::AllocationOrigin, v8::internal::AllocationAlignment) [jsonlint-cli]\n 9: 0x108a366 v8::internal::Factory::NewFillerObject(int, v8::internal::AllocationAlignment, v8::internal::AllocationType, v8::internal::AllocationOrigin) [jsonlint-cli]\n10: 0x14e5196 v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [jsonlint-cli]\n11: 0x191cef6  [jsonlint-cli]\nAborted (core dumped)",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/97/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Uni": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Uni01": {
+                    "description": "Are the tests passing through an automated means?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the failing test cases found by the {tool_name} tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Test cases are not passing using None testing framework",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-jenkins_exit_status",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "pytest",
+                                "lang": "Python",
+                                "version": "7.1.3",
+                                "docker": {
+                                    "image": "eoscsynergy/sqaaas-pytest:7.1.3-alpha",
+                                    "reviewed": "2023-08-09"
+                                },
+                                "ci": {
+                                    "name": "QC.Uni github.com/HPCI-Lab/yProv4SQA pytest",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "pytest  --json-report  --json-report-indent 4"
+                                    ],
+                                    "stdout_text": "============================= test session starts ==============================\nplatform linux -- Python 3.9.17, pytest-7.1.3, pluggy-1.2.0\nrootdir: /sqaaas-build/github.com/HPCI-Lab/yProv4SQA\nplugins: metadata-3.0.0, json-report-1.5.0\ncollected 0 items\n\n--------------------------------- JSON report ----------------------------------\nreport saved to: .report.json\n============================ no tests ran in 0.12s =============================",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Ver": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Ver01.0": {
+                    "description": "Are tags being used for releasing software",
+                    "requirement_level": "MUST",
+                    "hint": "Git tags are a convenient way to release software. This subcriterion checks if any git tag is present in the code history. More info on it-scm.com/book/en/v2/Git-Basics-Tagging\" target=\"_blank\">git tagging</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "The code repository does not use tags for releasing new software versions",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/HPCI-Lab/yProv4SQA get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                },
+                "QC.Ver01": {
+                    "description": "Is the latest release compliant with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Latest tag must be compliant with <a href=\"https://semver.org\" target=\"_blank\">SemVer specification</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Latest release tag None found, but is not SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/HPCI-Lab/yProv4SQA get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                },
+                "QC.Ver02": {
+                    "description": "Are all release tags with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Existent release tags shall be <a href=\"https://semver.org\" target=\"_blank\">SemVer</a> compliant for this subcriterion to be successful",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "All release tags are SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/HPCI-Lab/yProv4SQA get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "[]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/yProv4SQA.assess.sqaaas/job/main/1/execution/node/115/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/yProv4SQA.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": []
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 33,
+                "total_subcriteria": 3,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Met": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Met01": {
+                    "description": "Is the software citable?",
+                    "valid": false,
+                    "hint": "The two formats for software citation supported by SQAaaS are: 1) <a href=\"https://codemeta.github.io/\" target=\"_blank\">CodeMeta</a> and 2) <a href=\"https://citation-file-format.github.io/\" target=\"_blank\">Citation File Format (CFF)</a>. While CodeMeta provides you with a more comprehensive description, CFF is a more lightweight, good-enough approach to software (with built-in support by GitHub) citation. Both provide tools (<a href=\"https://codemeta.github.io/codemeta-generator/\" target=\"_blank\">CodeMeta generator</a>, <a href=\"https://citation-file-format.github.io/cff-initializer-javascript/#/\" target=\"_blank\">CFFINIT</a>)to easily generate a working citation file. Once having the file, be sure to add it to the root path of your code repo.",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "No matching files found for language <CodeMeta> in repository searching by extensions or filenames\nNo matching files found for language <Citation File Format> in repository searching by extensions or filenames"
+                        }
+                    ],
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        }
+    },
+    "badge": {
+        "software": {
+            "criteria": {
+                "bronze": {
+                    "to_fulfill": [
+                        "QC.Doc",
+                        "QC.Lic",
+                        "QC.Acc"
+                    ],
+                    "missing": [
+                        "QC.Doc",
+                        "QC.Lic"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                },
+                "silver": {
+                    "to_fulfill": [
+                        "QC.Doc",
+                        "QC.Lic",
+                        "QC.Met",
+                        "QC.Acc",
+                        "QC.Ver"
+                    ],
+                    "missing": [
+                        "QC.Doc",
+                        "QC.Ver",
+                        "QC.Lic",
+                        "QC.Met"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                },
+                "gold": {
+                    "to_fulfill": [
+                        "QC.Doc",
+                        "QC.Lic",
+                        "QC.Sty",
+                        "QC.Met",
+                        "QC.Acc",
+                        "QC.Uni",
+                        "QC.Ver",
+                        "QC.Sec"
+                    ],
+                    "missing": [
+                        "QC.Doc",
+                        "QC.Lic",
+                        "QC.Sty",
+                        "QC.Met",
+                        "QC.Uni",
+                        "QC.Ver",
+                        "QC.Sec"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                }
+            },
+            "data": {}
+        }
+    }
+}
