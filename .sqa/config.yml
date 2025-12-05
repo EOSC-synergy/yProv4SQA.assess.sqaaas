@@ -1,0 +1,68 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: main
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/HPCI-Lab/yProv4SQA:
+      branch: main
+      repo: https://github.com/HPCI-Lab/yProv4SQA
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/HPCI-Lab/yProv4SQA git:
+        commands:
+        - /usr/bin/env sh .sqa/script.surly-brass-fox.sh
+        container: qc.acc_gimpy-myrtle-affenpinscher
+  QC.Doc:
+    repos:
+      github.com/HPCI-Lab/yProv4SQA find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.whiny-fuchsia-akita.sh
+        container: qc.doc_chewy-lavender-mammoth
+      github.com/HPCI-Lab/yProv4SQA git:
+        commands:
+        - /usr/bin/env sh .sqa/script.freaky-eggplant-macaque.sh
+        container: qc.doc_chewy-ecru-anteater
+      github.com/HPCI-Lab/yProv4SQA markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.paltry-cobalt-crocodile.sh
+        container: qc.doc_cozy-orchid-akbash
+  QC.Lic:
+    repos:
+      github.com/HPCI-Lab/yProv4SQA licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.boozy-tan-panda.sh
+        container: qc.lic_snippy-olivine-javanese
+  QC.Sec:
+    repos:
+      github.com/HPCI-Lab/yProv4SQA bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.baggy-dandelion-ladybird.sh
+        container: qc.sec_muzzy-orange-beagle
+  QC.Sty:
+    repos:
+      github.com/HPCI-Lab/yProv4SQA flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.hasty-goldenrod-bandicoot.sh
+        container: qc.sty_sleazy-celadon-peccary
+      github.com/HPCI-Lab/yProv4SQA jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.gloppy-white-crocodile.sh
+        container: qc.sty_lousy-celadon-dragonfly
+  QC.Uni:
+    repos:
+      github.com/HPCI-Lab/yProv4SQA pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.geeky-scarlet-cuscus.sh
+        container: qc.uni_woozy-thistle-salamander
+  QC.Ver:
+    repos:
+      github.com/HPCI-Lab/yProv4SQA get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.pretty-champagne-turkey.sh
+        container: qc.ver_stealthy-chestnut-indri
+timeout: 5400
